@@ -86,12 +86,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CsvReader.cpp" />
+    <ClCompile Include="CsvWriter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CsvReader.h" />
+    <ClInclude Include="CsvWriter.h" />
     <ClInclude Include="Record.h" />
     <QtMoc Include="RecordLoader.h" />
   </ItemGroup>

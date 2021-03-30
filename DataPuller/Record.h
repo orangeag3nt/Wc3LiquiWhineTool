@@ -24,7 +24,4 @@ struct Record
 	QString winnerRace; //todo: enum
 	QString loser;
 	QString loserRace; //todo: enum
-
-	//~~temp:
-	int offset;
 };
