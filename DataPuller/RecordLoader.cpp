@@ -86,6 +86,7 @@ void RecordLoader::slotNetworkReplyFinished(QNetworkReply* r)
 	while (!reader.atEnd()) {
 		QStringList row = reader.read();
 		Record r;
+		r.date = d->nextDate;
 		r.name = row[0];
 		r.map = row[1];
 		r.winner = row[2];
@@ -115,6 +116,6 @@ void RecordLoader::slotNetworkReplyFinished(QNetworkReply* r)
 		return;
 	}
 
-	QTimer::singleShot(0, this, &RecordLoader::nextIteration);
+	QTimer::singleShot(1000, this, &RecordLoader::nextIteration);
 }
 

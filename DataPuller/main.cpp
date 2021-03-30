@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	RecordLoader l;
 	QObject::connect(&l, &RecordLoader::signalFinished, &app, &QCoreApplication::quit);
 	//l.start("1.32.9", QDate(2020, 10, 21), QDateTime::currentDateTime().date());
-	l.start("1.32.9", QDate(2021, 02, 03), QDate(2021, 02, 12));
+	l.start("1.32.9", QDate(2020, 10, 21), QDate(2020, 10, 22));
 	int res = app.exec();
 
 	QFile f("e:/export.csv");
@@ -23,9 +23,16 @@ int main(int argc, char *argv[])
 	stream.setGenerateByteOrderMark(true);
 
 	CsvWriter writer(&stream);
-	writer.write(QStringList() << "Map" << "Winner" << "Winner race" << "Loser" << "Loser race");
-	for (const Record& rec : l.result()) {
-		writer.write(QStringList() << rec.map << rec.winner << rec.winnerRace << rec.loser << rec.loserRace);
+	writer.write(QStringList() << "Date" << "Match name" << "Map" << "Winner" << "Winner race" << "Loser" << "Loser race");
+	QList<Record> dataset = l.result();
+	std::sort(dataset.begin(), dataset.end(), [](const Record& r1, const Record& r2)->bool {
+		if (r1.date == r2.date)
+			return QString::compare(r1.name, r2.name) < 0;
+		else
+			return r1.date < r2.date;
+	});
+	for (const Record& rec : dataset) {
+		writer.write(QStringList() << rec.date.toString("yyyy-MM-dd") << rec.name << rec.map << rec.winner << rec.winnerRace << rec.loser << rec.loserRace);
 	}
 	qDebug() << "Export completed.";
 	return res;
