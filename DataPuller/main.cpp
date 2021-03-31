@@ -3,6 +3,7 @@
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QDebug>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
