@@ -56,17 +56,19 @@ int main(int argc, char *argv[])
 	reader.read(); //header
 	while (!reader.atEnd()) {
 		QStringList items = reader.read();
-		if (items.count() != 5) {
-			qDebug() << "Record count != 5.";
+		const int neededColumns = 5;
+		int shift = items.count() - neededColumns;
+		if (shift < 0) {
+			qDebug() << "Record count < 5.";
 			return 1;
 		}
 
 		Record r;
-		r.map = items[0];
-		r.winner = items[1];
-		r.winnerRace = items[2];
-		r.loser = items[3];
-		r.loserRace = items[4];
+		r.map = items[shift];
+		r.winner = items[shift + 1];
+		r.winnerRace = items[shift + 2];
+		r.loser = items[shift + 3];
+		r.loserRace = items[shift + 4];
 		if (!isValidRace(r.winnerRace) || !isValidRace(r.loserRace) ||
 			!isValidPlayer(r.winner) || !isValidPlayer(r.loser) ||
 			!isValidMap(r.map) || r.loserRace == r.winnerRace)
