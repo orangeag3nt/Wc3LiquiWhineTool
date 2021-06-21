@@ -49,7 +49,8 @@ void RecordLoader::start(const QString& patch, const QDate& minDate, const QDate
 void RecordLoader::nextIteration()
 {
 	QNetworkRequest request;
-	request.setRawHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.60 Safari/537.17");
+	request.setRawHeader("User-Agent", "I_am_extracting_data_to_CSV (github.com/orangeag3nt/Wc3LiquiWhineTool)");
+	request.setRawHeader("Accept-Encoding", "gzip");
 	QLocale l("en_US");
 	QString day = QString::number(d->nextDate.day());
 	QString month = l.monthName(d->nextDate.month());
@@ -116,6 +117,6 @@ void RecordLoader::slotNetworkReplyFinished(QNetworkReply* r)
 		return;
 	}
 
-	QTimer::singleShot(1000, this, &RecordLoader::nextIteration);
+	QTimer::singleShot(30000, this, &RecordLoader::nextIteration);
 }
 

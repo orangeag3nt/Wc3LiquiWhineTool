@@ -10,8 +10,7 @@ int main(int argc, char *argv[])
 	QCoreApplication app(argc, argv);
 	RecordLoader l;
 	QObject::connect(&l, &RecordLoader::signalFinished, &app, &QCoreApplication::quit);
-	//l.start("1.32.9", QDate(2020, 10, 21), QDateTime::currentDateTime().date());
-	l.start("1.32.9", QDate(2020, 10, 21), QDate(2020, 10, 22));
+	l.start("1.32.10", QDate(2021, 4, 14), QDateTime::currentDateTime().date());
 	int res = app.exec();
 
 	QFile f("e:/export.csv");
