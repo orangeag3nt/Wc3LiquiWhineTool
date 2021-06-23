@@ -56,7 +56,7 @@ void RecordLoader::nextIteration()
 	QString month = l.monthName(d->nextDate.month());
 	QString year = QString::number(d->nextDate.year());
 	QString url = "https://liquipedia.net/warcraft/Special:Ask/mainlabel%3D/format%3Dcsv/limit%3D" + QString::number(Limit) +
-		"/-5B-5B-2DHas-20subobject::-20-3Cq-3E-5B-5BCategory:Individual-20Tournaments-5D-5D-3C-2Fq-3E-20-5D-5D-20-5B-5B:%2B-5D-5D-20-5B-5BHas-20patch::Patch-20" +
+		"/-5B-5BHas-20patch::Patch-20" +
 		d->patch + "-5D-5D-20-5B-5BHas-20map-20date::%E2%89%A5" + day + "-20" + month + "-20" + year +
 		"-2000:00:00-5D-5D-20-5B-5BHas-20map-20date::%E2%89%A4" + day + "-20" + month + "-20" + year +
 		"-2023:59:59-5D-5D/-3FIs-20played-20on/-3FHas-20winner-20page/-3FHas-20winning-20race/-3FHas-20loser-20page/-3FHas-20losing-20race";

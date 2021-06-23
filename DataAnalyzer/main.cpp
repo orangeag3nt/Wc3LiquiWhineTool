@@ -13,24 +13,65 @@ bool isValidRace(const QString& race) {
 }
 
 bool isValidPlayer(const QString& name) {
-	//top30 elo + TH000
+	//top50
 	static QList<QString> players = QList<QString>()
-		//multiple:"
-		<< "15sui" << "infi"
-		//humans:
-		<< "th000" << "fortitude" << "chaemiko" << "sok" << "cruncher" << "hawk" << "johnnycage" << "blade"
-		//uds:
-		<< "happy" << "eer0" << "ted" << "vortix" << "michael" << "xlord" << "xiaokai" << "krav"
-		//orcs:
-		<< "lyn" << "fly100%" << "focus" << "hitman" << "soin" << "grubby" << "无道oc"
-		//elves
-		<< "moon" << "lawliet" << "foggy" << "colorful" << "sini" << "yange"
+		<< "Happy"
+		<< "Moon"
+		<< "Lyn"
+		<< "Hitman"
+		<< "Colorful"
+		<< "Eer0"
+		<< "LawLiet"
+		<< "XlorD"
+		<< "FoCuS"
+		<< "Chaemiko"
+		<< "Foggy"
+		<< "Sok"
+		<< "Infi"
+		<< "Fly100%"
+		<< "Fortitude"
+		<< "CrunCher"
+		<< "TeD"
+		<< "VortiX"
+		<< "Soin"
+		<< "TH000"
+		<< "Starbuck"
+		<< "Lin Guagua"
+		<< "Pink"
+		<< "15sui"
+		<< "ToD"
+		<< "WaN"
+		<< "HawK"
+		<< "Kaho"
+		<< "KraV"
+		<< "Blade"
+		<< "Ice orc"
+		<< "MichaeL"
+		<< "XiaoKai"
+		<< "Neytpoh"
+		<< "Fast"
+		<< "KiWiKaKi"
+		<< "ThundeR"
+		<< "Pcg 123"
+		<< "LucifroN"
+		<< "JohnnyCage"
+		<< "Tbc bm"
+		<< "Sini"
+		<< "Alice"
+		<< "TeRRoR"
+		<< "INSUPERABLE"
+		<< "Yange"
+		<< "HuG"
+		<< "WFZ"
+		<< "Zhou Xixi"
+		<< "Cash"
 		;
-	return players.contains(name.toLower());
+	return players.contains(name);
 }
 
 bool isValidMap(const QString& map) {
 	static QList<QString> maps = QList<QString>()
+		<< "Tidehunters"
 		<< "Terenas Stand LV"
 		<< "Echo Isles"
 		<< "Autumn Leaves"

@@ -1,7 +1,7 @@
 #include "CsvReader.h"
 #include <QTextStream>
 
-enum CSVState {
+enum CsvState {
 	UnquotedField,
 	QuotedField,
 	QuotedQuote
@@ -10,7 +10,7 @@ enum CSVState {
 struct CsvReaderPrivate
 {
 	QTextStream* stream;
-	CSVState state;
+	CsvState state;
 	QString currentValue;
 };
 
@@ -43,9 +43,9 @@ QStringList CsvReader::read()
 				items << d->currentValue;
 				d->currentValue = QString();
 			} else if (c == '"') {
-				d->state = CSVState::QuotedField;
+				d->state = CsvState::QuotedField;
 			} else if (c == '\n') {
-				d->state = CSVState::UnquotedField;
+				d->state = CsvState::UnquotedField;
 				items << d->currentValue;
 				d->currentValue = QString();
 				return items;
@@ -72,7 +72,7 @@ QStringList CsvReader::read()
 				return items;
 			} else if (c != '\r') {
 				d->currentValue += c;
-				d->state = c == '"' ? CSVState::QuotedField : CSVState::UnquotedField;
+				d->state = c == '"' ? CsvState::QuotedField : CsvState::UnquotedField;
 			}
 			break;
 		}
